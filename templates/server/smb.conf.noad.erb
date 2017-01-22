@@ -1,0 +1,35 @@
+[global]
+
+#auth
+server role = standalone 
+security = user
+map to guest = Bad Password
+guest account = nobody
+auth methods = guest, sam_ignoredomain
+
+
+preferred master = no
+domain master = no
+local master = no
+os level = 5
+
+ # Disable printers
+  load printers = No
+  show add printer wizard = no
+  printcap name = /dev/null
+  disable spoolss = yes
+
+socket options = IPTOS_LOWDELAY TCP_NODELAY SO_KEEPALIVE
+use sendfile = Yes
+dns proxy = No
+dont descend = /proc,/dev,/etc
+deadtime = 15
+
+ # Enable synlinks
+  unix extensions = No
+  wide links = yes
+  follow symlinks = yes
+
+
+
+include=/etc/samba/shares.conf
